@@ -1,0 +1,54 @@
+<!DOCTYPE html><html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Ejercicio coste total del viaje con Javascript</title>
+	<meta name="description" content="Ejercicio coste total del viaje">
+<style type="text/css"> label{width:200px; display: inline-block;} </style>
+<script type="text/javascript">
+function coste_hotel(numNoches){
+	var resultado = 140*numNoches;
+	return resultado;
+}
+
+function coste_avion(destino, n_noches){
+	var c = 0;
+	if(destino=="Oviedo"){
+		c = 15;
+	}else if (destino=="Tokyo"){
+		c = 700;
+	}else if (destino=="Madrid"){
+		c = 90; }
+		if(n_noches>3){
+		c = c*0.9; }
+	return c;
+}
+
+function coste_alquiler_coche(n){
+	var valorDevuelto = n*40; if(n>=7){ valorDevuelto-=50;
+	}else if(n>=3){ valorDevuelto-=20 }
+	return valorDevuelto;
+}
+
+function calcular_coste(){
+	var num_noches = document.getElementById("num_noches").value;
+	var destino = document.getElementById("nombreCiudad").value;
+	var resultado1 = coste_hotel(num_noches);
+	var resultado2 = coste_avion(destino, num_noches);
+	var resultado3 = coste_alquiler_coche(num_noches)
+	document.getElementById("resultadoHotel").value = resultado1;
+	document.getElementById("resultadoViaje").value = resultado2;
+	document.getElementById("resultadoAlquilerCoche").value = resultado3;
+	document.getElementById("result").value = resultado1+resultado2+resultado3;}
+
+
+
+</script>
+
+</head><body><h1>Ejercicio coste total del viaje</h1> <label>Introduzca el número de noches</label> <input id="num_noches" type="text"> <select id="nombreCiudad">
+	<option selected="selected" value="Oviedo">Oviedo</option>
+	<option value="Tokyo">Tokyo</option>
+	<option value="Madrid">Madrid</option>
+	<option value="Barcelona">Barcelona</option>
+</select> <input onclick="calcular_coste()" value="calcular coste" type="button"> <br><br>
+<label>Coste del hotel: </label><input id="resultadoHotel" type="text"> <br> <label>Coste del avión: </label><input id="resultadoViaje" type="text"> <br> <label>Coste del alquiler del coche: </label><input id="resultadoAlquilerCoche" type="text"><br> <label>Coste total:</label><input id="result" type="text"><br>
+</body></html>

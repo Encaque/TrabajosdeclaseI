@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Ejercicio coste hotel con Javascript</title>
+
+        <meta name="description" content="Ejericio JavaScript">
+
+
+    <script type="text/javascript">
+
+function coste_hotel(numNoches){
+
+    var resultado = 140*numNoches;
+
+    return resultado;
+
+}
+
+function calcular_coste(){
+
+    var numNoches = document.getElementById("numNoches").value;
+
+    var resultado = coste_hotel(numNoches);
+
+
+    document.getElementById("resultado").value = resultado;
+
+}
+
+
+</script>
+
+
+</head>
+
+<body>
+
+<h1>Ejercicio coste hotel con Javascript</h1>
+
+
+<label>Introduzca el número de noches</label>
+
+<input id="numNoches" type="text">
+
+<input onclick="calcular_coste()" value="calcular coste" type="button">
+
+<br><br>
+
+
+<input id="resultado" type="text">
+
+
+</body>
+
+</html>
